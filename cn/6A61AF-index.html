@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crash Test</title>
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 1000000; i++) {
+            let div = document.createElement('div');
+            div.innerHTML = 'This is a test ' + i;
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>
