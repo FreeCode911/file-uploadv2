@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Standard Metadata -->
-    <meta name="description" content="Lykfile - Free, Anonymous, and Unlimited File Hosting. Upload files up to 10GBMB with ease!">
-<meta name="keywords" content="file hosting, free file upload, anonymous file hosting, unlimited file upload, secure file sharing, file sharing service, upload documents, upload photos, upload files online, file upload site, file storage">
- <meta name="author" content="LykCloud Team">
+    <!-- Standard Metadata -->
+    <meta name="description" content="Lykfile - Free, Anonymous, and Unlimited File Hosting. Upload files up to 10GB with ease!">
+    <meta name="keywords" content="file hosting, free file upload, anonymous file hosting, unlimited file upload, secure file sharing, file sharing service, upload documents, upload photos, upload files online, file upload site, file storage">
+    <meta name="author" content="LykCloud Team">
     <title>Lykfile - Free, Anonymous, and Unlimited File Hosting </title>
     <link rel="icon" href="file/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="file/favicon.ico" type="image/x-icon">
@@ -94,8 +94,47 @@
 
         .button-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            margin-top: 20px;
+        }
+
+        .server-select {
+            background-color: #4e9a06;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-select::after {
+            content: '▼';
+            font-size: 14px;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            transition: color 0.3s ease;
+        }
+
+        .server-select:hover {
+            background-color: #066c7e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .server-select option {
+            background-color: #252525;
+            color: #fff;
         }
 
         .upload-button {
@@ -190,6 +229,12 @@
             <p>Storage - <strong class="working">Working!</strong></p>
         </div>
         <div class="button-container">
+            <select id="server-select" class="server-select">
+                <option value="/drop/server1">Server 1</option>
+                <option value="/drop/server2">Server 2</option>
+                <option value="/drop/server3">Server 3</option>
+                <option value="/drop/server4">Server 4</option>
+            </select>
             <button id="upload-button" class="upload-button"><span>Upload</span></button>
             <div id="loader" class="loader"></div>
         </div>
@@ -202,18 +247,21 @@
     <script>
         const uploadButton = document.getElementById('upload-button');
         const loader = document.getElementById('loader');
+        const serverSelect = document.getElementById('server-select');
 
         uploadButton.addEventListener('click', () => {
             // Show loader animation
             loader.style.display = 'inline-block';
 
+            // Get selected server URL
+            const selectedServer = serverSelect.value;
+
             // Simulate delay before redirection (replace with actual API call)
             setTimeout(() => {
-                // Redirect to another page after 3 seconds (replace with your URL)
-                window.location.href = '/drop';
+                // Redirect to the selected server upload URL after 3 seconds
+                window.location.href = selectedServer;
             }, 3000); // 3 seconds delay
         });
     </script>
 </body>
 </html>
-
