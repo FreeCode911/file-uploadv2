@@ -4,36 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="5; url=http://drop.lykfile.me:30010/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting</title>
+    <title>Checking your browser...</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
         }
-        .message {
+        .container {
             text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
         .message h1 {
             font-size: 2rem;
             color: #333;
+            margin: 0 0 10px;
         }
         .message p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #666;
+            margin: 10px 0;
+        }
+        .spinner {
+            margin: 20px auto;
+            width: 120px;
+            height: 120px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            animation: spin 2s linear infinite;
         }
         .countdown {
             font-size: 1.5rem;
-            color: #ff0000;
-        }
-        .redirecting {
-            font-size: 1.5rem;
             color: #007BFF;
             margin-top: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer-links a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .footer-links a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .footer-text {
+            margin-top: 10px;
         }
     </style>
     <script>
@@ -46,7 +92,6 @@
                 countdownElement.textContent = seconds;
                 if (seconds <= 0) {
                     clearInterval(interval);
-                    document.getElementById('redirecting').textContent = "Redirecting...";
                 }
             }, 1000);
         }
@@ -56,10 +101,21 @@
     </script>
 </head>
 <body>
-    <div class="message">
-        <h1>You are now going to be redirected</h1>
-        <p>to <a href="http://drop.lykfile.me:30010/">http://drop.lykfile.me:30010/</a> in <span id="countdown" class="countdown">5</span> seconds.</p>
-        <div id="redirecting" class="redirecting"></div>
+    <div class="container">
+        <div class="message">
+            <h1>Checking your browser before accessing</h1>
+            <p>This process is automatic. Your browser will redirect to your requested content shortly.</p>
+            <p>Please allow up to <span id="countdown" class="countdown">5</span> seconds...</p>
+        </div>
+        <div class="spinner"></div>
+        <footer>
+            <div class="footer-text">DDoS protection by LykCloud</div>
+            <div class="footer-text">Ray ID: 1234567890abcdef</div>
+            <div class="footer-links">
+                <a href="#">Privacy & Terms</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
