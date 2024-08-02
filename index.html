@@ -3,34 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Standard Metadata -->
     <meta name="description" content="Lykfile - Free, Anonymous, and Unlimited File Hosting. Upload files up to 1GB with ease!">
     <meta name="keywords" content="file hosting, free file upload, anonymous file hosting, unlimited file upload, secure file sharing, file sharing service, upload documents, upload photos, upload files online, file upload site, file storage">
     <meta name="author" content="LykCloud Team">
-    <title>Lykfile - Free, Anonymous, and Unlimited File Hosting </title>
+    <title>Lykfile - Free, Anonymous, and Unlimited File Hosting</title>
     <link rel="icon" href="file/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="file/favicon.ico" type="image/x-icon">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #1a1a1a;
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
             color: #c5c8c6;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background: url('https://lykfile.me/cn/7B3CF0-2024-07-07-LYK-CLOUD.gif') center/cover no-repeat;
+            opacity: 0.7;
+            filter: blur(10px);
         }
 
         .status-container {
             background-color: #252525;
             padding: 40px;
-            border-radius: 8px;
+            border-radius: 9px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 100%;
+            max-width: 300px;
+            width: 70%;
             text-align: center;
             transition: transform 0.2s ease;
+            z-index: 1;
+            position: relative;
         }
 
         .status-container:hover {
@@ -45,7 +62,7 @@
         }
 
         .banner img {
-            max-width: 45%;
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
             transition: transform 0.3s ease;
@@ -150,6 +167,11 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 200px;
         }
 
         .upload-button:hover {
@@ -215,9 +237,27 @@
         .footer a:hover {
             color: #4e9a06;
         }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .status-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .upload-button {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="background-animation"></div>
     <div class="status-container">
         <div class="banner">
             <img src="https://lykfile.me/cn/7B3CF0-2024-07-07-LYK-CLOUD.gif" alt="Banner Image">
@@ -229,21 +269,21 @@
             <p>Storage - <strong class="working">Working!</strong></p>
         </div>
         <div class="button-container">
-            <select id="server-select" class="server-select">
+            <select id="server-select" class="server-select" aria-label="Select Server">
                 <option value="/drop/server1">Server 1</option>
                 <option value="/drop/server2">Server 2</option>
                 <option value="/drop/server3">Server 3</option>
                 <option value="/drop/server4">Server 4</option>
             </select>
-            <button id="upload-button" class="upload-button"><span>Upload</span></button>
-            <div id="loader" class="loader"></div>
+            <button id="upload-button" class="upload-button" aria-label="Upload Button" title="Click to upload">
+                <span>Upload</span>
+                <div class="loader" id="loader"></div>
+            </button>
         </div>
         <div class="footer">
-            <p>Need help? <a href="https://lykcloud.me" target="_blank">Visit our Help Center</a></p>
-            <p>&copy; 2024 LykCloud. All rights reserved.</p>
+            <p>&copy; 2024 LykCloud Team | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </div>
-
     <script>
         const uploadButton = document.getElementById('upload-button');
         const loader = document.getElementById('loader');
@@ -262,7 +302,6 @@
                 window.location.href = selectedServer;
             }, 3000); // 3 seconds delay
         });
-        
     </script>
 </body>
 </html>
