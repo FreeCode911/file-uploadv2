@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>new way</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #121212;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Added for content overflow */
+  flex-grow: 1; /* Allows content to grow and take available space */
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2em;
+  color: #bb86fc;
+}
+
+pre {
+  background: #2d2d2d;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+code {
+  color: #f8f8f2;
+}
+
+footer { /* Added footer styles */
+  background: #1e1e1e;
+  color: #808080;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<div class="content"> 
+  <h1>new way</h1>
+  <div id="content">fgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgjfgfdgjdfgj</div>
+</div>
+<footer> 
+  <p>&copy; 2023 Your Name or Company</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.1.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const contentDiv = document.getElementById('content');
+  contentDiv.innerHTML = marked.parse(contentDiv.textContent);
+  hljs.highlightAll();
+});
+</script>
+</body>
+</html>
